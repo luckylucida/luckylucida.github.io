@@ -250,34 +250,138 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/diedai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王彤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王彤的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">迭代</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>请使用迭代查找一个list中最小和最大值，并返回一个tuple：<br><a id="more"></a></p>
+          <h1 class="post-title" itemprop="name headline">迭代</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T08:56:40+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>请使用迭代查找一个list中最小和最大值，并返回一个tuple：<br><a id="more"></a></p>
 <h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">def findMinAndMax(L):</span><br><span class="line"> <span class="keyword">if</span> L:</span><br><span class="line">     min = L[0]</span><br><span class="line">     max = L[0]</span><br><span class="line">     <span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">         <span class="keyword">if</span> i &gt;=max:</span><br><span class="line">             max=i</span><br><span class="line">         <span class="keyword">if</span> i&lt;=min:</span><br><span class="line">             min =i</span><br><span class="line">     <span class="built_in">return</span>((min,max))</span><br><span class="line"> <span class="keyword">else</span> :</span><br><span class="line">  <span class="built_in">return</span> (None, None)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> findMinAndMax([]) != (None, None):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7]) != (7, 7):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'2测试失败!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7, 1]) != (1, 7):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'3测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'4测试失败!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'5测试成功!'</span>)</span><br></pre></td></tr></table></figure>
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/04/python_spice (2)/" rel="next" title="spice">
+                <i class="fa fa-chevron-left"></i> spice
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
