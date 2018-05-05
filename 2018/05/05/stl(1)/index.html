@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="请使用迭代查找一个list中最小和最大值，并返回一个tuple：">
+<meta name="description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例![Alt text]stl(1).PNG 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream">
 <meta property="og:type" content="article">
-<meta property="og:title" content="迭代">
-<meta property="og:url" content="http://yoursite.com/2018/05/05/diedai/index.html">
+<meta property="og:title" content="STL六大宝">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/stl(1)/index.html">
 <meta property="og:site_name" content="王彤的博客">
-<meta property="og:description" content="请使用迭代查找一个list中最小和最大值，并返回一个tuple：">
+<meta property="og:description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例![Alt text]stl(1).PNG 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-05T01:01:32.394Z">
+<meta property="og:updated_time" content="2018-05-05T13:41:52.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="迭代">
-<meta name="twitter:description" content="请使用迭代查找一个list中最小和最大值，并返回一个tuple：">
+<meta name="twitter:title" content="STL六大宝">
+<meta name="twitter:description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例![Alt text]stl(1).PNG 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/05/diedai/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/stl(1)/"/>
 
 
 
 
 
-  <title>迭代 | 王彤的博客</title>
+  <title>STL六大宝 | 王彤的博客</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/diedai/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/stl(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王彤">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">迭代</h1>
+          <h1 class="post-title" itemprop="name headline">STL六大宝</h1>
         
 
         <div class="post-meta">
@@ -281,7 +281,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T08:56:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:29:50+08:00">
                 2018-05-05
               </time>
             
@@ -319,8 +319,9 @@
       
 
       
-        <p>请使用迭代查找一个list中最小和最大值，并返回一个tuple：<br><a id="more"></a></p>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">def findMinAndMax(L):</span><br><span class="line"> <span class="keyword">if</span> L:</span><br><span class="line">     min = L[0]</span><br><span class="line">     max = L[0]</span><br><span class="line">     <span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">         <span class="keyword">if</span> i &gt;=max:</span><br><span class="line">             max=i</span><br><span class="line">         <span class="keyword">if</span> i&lt;=min:</span><br><span class="line">             min =i</span><br><span class="line">     <span class="built_in">return</span>((min,max))</span><br><span class="line"> <span class="keyword">else</span> :</span><br><span class="line">  <span class="built_in">return</span> (None, None)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> findMinAndMax([]) != (None, None):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7]) != (7, 7):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'2测试失败!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7, 1]) != (1, 7):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'3测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'4测试失败!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'5测试成功!'</span>)</span><br></pre></td></tr></table></figure>
+        <p>容器：存储数据<br>分配器：分配数据<br>算法：处理数据<br>迭代器：定位数据<br>适配器：变压数据<br>仿函数：假装自己是函数</p>
+<h2 id="STL六大宝实例"><a href="#STL六大宝实例" class="headerlink" title="STL六大宝实例"></a>STL六大宝实例</h2><p>![Alt text]stl(1).PNG</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;vector&gt;</span></span><br><span class="line"><span class="comment">#include &lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;functional&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include   &lt;stdlib.h&gt; </span></span><br><span class="line">using namespace std;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">	int ia[6] = &#123;1,2,33,44,44,66&#125;;</span><br><span class="line">	vector&lt;int, allocator&lt;int&gt; &gt; vi(ia, ia + 6);</span><br><span class="line">	cout &lt;&lt; count_if(vi.begin(),vi.end(),bind2nd(less&lt;int&gt;(),40));</span><br><span class="line">	system(<span class="string">"PAUSE "</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -344,8 +345,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/04/python_spice (2)/" rel="next" title="spice">
-                <i class="fa fa-chevron-left"></i> spice
+              <a href="/2018/05/05/diedai/" rel="next" title="迭代">
+                <i class="fa fa-chevron-left"></i> 迭代
               </a>
             
           </div>
@@ -353,10 +354,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/05/stl(1)/" rel="prev" title="STL六大宝">
-                STL六大宝 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,7 +476,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代"><span class="nav-number">1.</span> <span class="nav-text">迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#STL六大宝实例"><span class="nav-number">1.</span> <span class="nav-text">STL六大宝实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
             
 
           </div>
