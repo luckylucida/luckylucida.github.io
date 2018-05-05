@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法： 递归和切片代码实现123456789101112131415161718192021222324252627282930def trim(s): if s[:1] != &apos; &apos; and s[-1:] != &apos; &apos;:     #第一个不是空格且倒数第一个也不是空格时返回s     return s">
+<meta name="description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream&amp;gt;#include   &amp;lt;st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spice">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/python_spice (2)/index.html">
+<meta property="og:title" content="STL六大宝">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/stl-learning-1/index.html">
 <meta property="og:site_name" content="王彤的博客">
-<meta property="og:description" content="利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法： 递归和切片代码实现123456789101112131415161718192021222324252627282930def trim(s): if s[:1] != &apos; &apos; and s[-1:] != &apos; &apos;:     #第一个不是空格且倒数第一个也不是空格时返回s     return s">
+<meta property="og:description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream&amp;gt;#include   &amp;lt;st">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T14:21:20.891Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/05/stl-learning-1/logo.jpg">
+<meta property="og:updated_time" content="2018-05-05T14:08:22.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spice">
-<meta name="twitter:description" content="利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法： 递归和切片代码实现123456789101112131415161718192021222324252627282930def trim(s): if s[:1] != &apos; &apos; and s[-1:] != &apos; &apos;:     #第一个不是空格且倒数第一个也不是空格时返回s     return s">
+<meta name="twitter:title" content="STL六大宝">
+<meta name="twitter:description" content="容器：存储数据分配器：分配数据算法：处理数据迭代器：定位数据适配器：变压数据仿函数：假装自己是函数 STL六大宝实例 代码实现123456789101112131415#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include&amp;lt;functional&amp;gt;#include&amp;lt;iostream&amp;gt;#include   &amp;lt;st">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/05/stl-learning-1/logo.jpg">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/04/python_spice (2)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/stl-learning-1/"/>
 
 
 
 
 
-  <title>spice | 王彤的博客</title>
+  <title>STL六大宝 | 王彤的博客</title>
   
 
 
@@ -252,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/python_spice (2)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/stl-learning-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王彤">
@@ -269,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spice</h1>
+          <h1 class="post-title" itemprop="name headline">STL六大宝</h1>
         
 
         <div class="post-meta">
@@ -281,8 +283,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T22:19:32+08:00">
-                2018-05-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T22:04:51+08:00">
+                2018-05-05
               </time>
             
 
@@ -319,8 +321,9 @@
       
 
       
-        <p>利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：</p>
-<h2 id="递归和切片"><a href="#递归和切片" class="headerlink" title="递归和切片"></a>递归和切片</h2><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">def trim(s):</span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> s[:1] != <span class="string">' '</span> and s[-1:] != <span class="string">' '</span>:</span><br><span class="line">     <span class="comment">#第一个不是空格且倒数第一个也不是空格时返回s</span></span><br><span class="line">     <span class="built_in">return</span> s</span><br><span class="line"> <span class="keyword">elif</span> s[:1] == <span class="string">' '</span>:</span><br><span class="line">     <span class="comment">#s[0]处是空格，则从s[1]处开始取值</span></span><br><span class="line">     <span class="built_in">return</span> trim(s[1:])</span><br><span class="line">     <span class="comment">#此处切掉s[0]处的空格，s = s[1:]</span></span><br><span class="line"> <span class="keyword">else</span>:</span><br><span class="line">     <span class="comment">#s[-1]处是空格</span></span><br><span class="line">     <span class="built_in">return</span> trim(s[:-1])</span><br><span class="line">     <span class="comment">#切掉s[-1],取到倒数第二个，s = s[:-1]</span></span><br><span class="line"> <span class="comment"># 测试:</span></span><br><span class="line"><span class="keyword">if</span> trim(<span class="string">'hello  '</span>) != <span class="string">'hello'</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello'</span>) != <span class="string">'hello'</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello  '</span>) != <span class="string">'hello'</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello  world  '</span>) != <span class="string">'hello  world'</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">''</span>) != <span class="string">''</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'    '</span>) != <span class="string">''</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">'测试成功!'</span>)</span><br></pre></td></tr></table></figure>
+        <p>容器：存储数据<br>分配器：分配数据<br>算法：处理数据<br>迭代器：定位数据<br>适配器：变压数据<br>仿函数：假装自己是函数</p>
+<h2 id="STL六大宝实例"><a href="#STL六大宝实例" class="headerlink" title="STL六大宝实例"></a>STL六大宝实例</h2><p><img src="/2018/05/05/stl-learning-1/logo.jpg" alt="logo"></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;vector&gt;</span></span><br><span class="line"><span class="comment">#include &lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;functional&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include   &lt;stdlib.h&gt; </span></span><br><span class="line">using namespace std;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">	int ia[6] = &#123;1,2,33,44,44,66&#125;;</span><br><span class="line">	vector&lt;int, allocator&lt;int&gt; &gt; vi(ia, ia + 6);</span><br><span class="line">	cout &lt;&lt; count_if(vi.begin(),vi.end(),bind2nd(less&lt;int&gt;(),40));</span><br><span class="line">	system(<span class="string">"PAUSE "</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -344,8 +347,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/04/first-blog/" rel="next" title="first blog">
-                <i class="fa fa-chevron-left"></i> first blog
+              <a href="/2018/05/05/stl(1)/" rel="next" title="STL六大宝">
+                <i class="fa fa-chevron-left"></i> STL六大宝
               </a>
             
           </div>
@@ -353,10 +356,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/05/diedai/" rel="prev" title="迭代">
-                迭代 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,7 +478,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归和切片"><span class="nav-number">1.</span> <span class="nav-text">递归和切片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#STL六大宝实例"><span class="nav-number">1.</span> <span class="nav-text">STL六大宝实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
             
 
           </div>
