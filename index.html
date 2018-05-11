@@ -249,6 +249,247 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/xlsx_deal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王彤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王彤的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/xlsx_deal/" itemprop="url">python 处理xlsx</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T10:31:05+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>读取多个xlsx中的多个sheet并且保存到一个xlsx</p>
+<p>## </p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;vector&gt;</span></span><br><span class="line"><span class="comment">#include &lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;functional&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include   &lt;stdlib.h&gt; </span></span><br><span class="line">using namespace std;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">	int ia[6] = &#123;import xlrd,xlsxwriter</span><br><span class="line"><span class="comment"># 读取文件的每个sheet</span></span><br><span class="line">file=[<span class="string">"E:\\python_learning\\text2.xls"</span>,<span class="string">"E:\\python_learning\\1.xls"</span>]</span><br><span class="line">output=<span class="string">"E:\\python_learning\\text_output.xls"</span></span><br><span class="line">def get_sheet(file):</span><br><span class="line">    sheets=[]</span><br><span class="line">    <span class="keyword">for</span> pfile <span class="keyword">in</span> file:</span><br><span class="line">        book=xlrd.open_workbook(pfile)</span><br><span class="line">        sheets.append(book.sheets())</span><br><span class="line">    <span class="built_in">return</span> sheets</span><br><span class="line"><span class="comment">#读取所有行</span></span><br><span class="line">def get_value(sheets):</span><br><span class="line">    value=[]</span><br><span class="line">    <span class="keyword">for</span> sheet <span class="keyword">in</span> sheets:</span><br><span class="line">        <span class="keyword">for</span> psheet <span class="keyword">in</span> sheet:</span><br><span class="line">            nline=psheet.nrows</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(nline):</span><br><span class="line">                value.append(psheet.row_values(i))</span><br><span class="line">    <span class="built_in">return</span> value</span><br><span class="line"><span class="comment"># 写入xlsx</span></span><br><span class="line">def write_xls(value,output):</span><br><span class="line">    workbook = xlsxwriter.Workbook(output)</span><br><span class="line">    worksheet = workbook.add_worksheet()</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(len(value)) :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(value[item])):</span><br><span class="line">            worksheet.write(item, j, value[item][j])</span><br><span class="line">    workbook.close()</span><br><span class="line">sheets=get_sheet(file)</span><br><span class="line">value=get_value(sheets)</span><br><span class="line">write_xls(value,output)</span><br><span class="line">1,2,33,44,44,66&#125;;</span><br><span class="line">	vector&lt;int, allocator&lt;int&gt; &gt; vi(ia, ia + 6);</span><br><span class="line">	cout &lt;&lt; count_if(vi.begin(),vi.end(),bind2nd(less&lt;int&gt;(),40));</span><br><span class="line">	system(<span class="string">"PAUSE "</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/cotainer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王彤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王彤的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/cotainer/" itemprop="url">cotainer and allocator</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T18:59:30+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>key必须是独一无二的：map,set,unorderer_map,unorderer_set,<br>key不必是独一无二的；mutiset,mutimap;<br>allocator:尽量不用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/stl-learning-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -770,7 +1011,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
